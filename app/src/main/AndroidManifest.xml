@@ -20,6 +20,7 @@
     package="br.com.zup.beaglescaffold">
 
     <application
+        android:name=".SampleBeagleApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"

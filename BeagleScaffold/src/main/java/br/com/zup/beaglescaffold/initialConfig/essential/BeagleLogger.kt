@@ -20,7 +20,6 @@ package br.com.zup.beaglescaffold.initialConfig.essential
 import android.util.Log
 
 private const val BEAGLE_TAG = "BeagleSDK"
-@BeagleScaffoldWidget
 class BeagleLogger {
 
     fun warning(message: String) {
