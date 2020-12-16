@@ -15,10 +15,19 @@
  *
  */
 
-package br.com.zup.beaglescaffold
+package br.com.zup.beaglescaffold.initialConfig.essential
 
-import br.com.zup.beagle.android.annotation.BeagleComponent
-import br.com.zup.beaglescaffold.initialConfig.essential.BeagleConfigScaffold
+import br.com.zup.beagle.android.setup.BeagleConfig
+import br.com.zup.beagle.android.setup.Cache
+import br.com.zup.beagle.android.setup.Environment
 
-@BeagleComponent
-class AppBeagleConfig : BeagleConfigScaffold()
+open class BeagleConfigScaffold(
+    override val environment: Environment = Environment.DEBUG,
+    override val baseUrl: String = "http://10.0.2.2:8080",
+    override val isLoggingEnabled: Boolean = true,
+    override val cache: Cache = Cache(
+        enabled = false,
+        maxAge = 300,
+        size = 15
+    )
+) : BeagleConfig

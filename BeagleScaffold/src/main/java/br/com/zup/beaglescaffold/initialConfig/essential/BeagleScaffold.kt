@@ -44,20 +44,17 @@ object BeagleScaffold {
                 get() = beagleSdk.analytics
             override val config: BeagleConfig
                 get() = beagleSdk.config
-            override val controllerReference: BeagleControllerReference?
-                get() = beagleSdk.controllerReference
-            override val deepLinkHandler: DeepLinkHandler?
-                get() = TODO("Not yet implemented")
+            override val controllerReference: BeagleControllerReference? = beagleSdk.controllerReference
+            override val deepLinkHandler: DeepLinkHandler? = beagleSdk.deepLinkHandler
             override val designSystem: DesignSystem?
                 get() = TODO("Not yet implemented")
             override val formLocalActionHandler: FormLocalActionHandler?
                 get() = TODO("Not yet implemented")
             override val httpClient: HttpClient?
-                get() = createScaffoldHttpClient()
+                get() = TODO("Not yet implemented")
             override val imageDownloader: BeagleImageDownloader?
                 get() = TODO("Not yet implemented")
-            override val logger: BeagleLogger?
-                get() = TODO("Not yet implemented")
+            override val logger: BeagleLogger? = BeagleLoggerDefault()
             override val serverDrivenActivity: Class<BeagleActivity>
                 get() = TODO("Not yet implemented")
             override val storeHandler: StoreHandler?
@@ -85,7 +82,4 @@ object BeagleScaffold {
         return newSdkInstance
     }
 
-    private fun createScaffoldHttpClient(): HttpClient? {
-        TODO("Not yet implemented")
-    }
 }

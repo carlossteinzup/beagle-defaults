@@ -18,10 +18,12 @@
 package br.com.zup.beaglescaffold
 
 import android.app.Application
+import br.com.zup.beaglescaffold.initialConfig.essential.BeagleScaffold
 
 class SampleBeagleApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
+        BeagleScaffold.scaffold(BeagleSetup()).init(this)
     }
 }

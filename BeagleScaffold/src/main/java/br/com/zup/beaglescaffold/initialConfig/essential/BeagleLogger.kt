@@ -18,23 +18,24 @@
 package br.com.zup.beaglescaffold.initialConfig.essential
 
 import android.util.Log
+import br.com.zup.beagle.android.logger.BeagleLogger
 
 private const val BEAGLE_TAG = "BeagleSDK"
-class BeagleLogger {
+class BeagleLoggerDefault : BeagleLogger {
 
-    fun warning(message: String) {
+    override fun warning(message: String) {
         Log.w(BEAGLE_TAG, message)
     }
 
-    fun error(message: String) {
+    override fun error(message: String) {
         Log.e(BEAGLE_TAG, message)
     }
 
-    fun error(message: String, throwable: Throwable) {
+    override fun error(message: String, throwable: Throwable) {
         Log.e(BEAGLE_TAG, message, throwable)
     }
 
-    fun info(message: String) {
+    override fun info(message: String) {
         Log.i(BEAGLE_TAG, message)
     }
 }
