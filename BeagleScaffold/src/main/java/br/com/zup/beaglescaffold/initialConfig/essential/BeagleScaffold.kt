@@ -35,49 +35,11 @@ import br.com.zup.beagle.android.setup.DesignSystem
 import br.com.zup.beagle.android.store.StoreHandler
 import br.com.zup.beagle.android.view.BeagleActivity
 import br.com.zup.beagle.android.widget.WidgetView
+import com.example.beagle_defaults.BeagleDefaults
 
 
 object BeagleScaffold {
     fun scaffold(beagleSdk: BeagleSdk): BeagleSdk {
-        return object : BeagleSdk {
-            override val analytics: Analytics?
-                get() = beagleSdk.analytics
-            override val config: BeagleConfig
-                get() = beagleSdk.config
-            override val controllerReference: BeagleControllerReference? =
-                beagleSdk.controllerReference
-            override val deepLinkHandler: DeepLinkHandler? = beagleSdk.deepLinkHandler
-            override val designSystem: DesignSystem?
-                get() = beagleSdk.designSystem
-            override val formLocalActionHandler: FormLocalActionHandler?
-                get() = beagleSdk.formLocalActionHandler
-            override val httpClient: HttpClient?
-                get() = beagleSdk.httpClient
-            override val imageDownloader: BeagleImageDownloader?
-                get() = beagleSdk.imageDownloader
-            override val logger: BeagleLogger? = BeagleLoggerDefault()
-            override val serverDrivenActivity: Class<BeagleActivity>
-                get() = beagleSdk.serverDrivenActivity
-            override val storeHandler: StoreHandler?
-                get() = beagleSdk.storeHandler
-            override val typeAdapterResolver: TypeAdapterResolver?
-                get() = beagleSdk.typeAdapterResolver
-            override val urlBuilder: UrlBuilder?
-                get() = beagleSdk.urlBuilder
-            override val validatorHandler: ValidatorHandler?
-                get() = beagleSdk.validatorHandler
-
-            override fun registeredActions(): List<Class<Action>> {
-                return beagleSdk.registeredActions()
-            }
-
-            override fun registeredOperations(): Map<String, Operation> {
-                return beagleSdk.registeredOperations()
-            }
-
-            override fun registeredWidgets(): List<Class<WidgetView>> {
-                return beagleSdk.registeredWidgets()
-            }
-        }
+        return BeagleDefaults.defaults(beagleSdk)
     }
 }

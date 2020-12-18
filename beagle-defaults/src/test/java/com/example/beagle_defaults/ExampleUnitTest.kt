@@ -15,27 +15,20 @@
  *
  */
 
-package br.com.zup.beaglescaffold.initialConfig.essential
+package com.example.beagle_defaults
 
-import android.util.Log
-import br.com.zup.beagle.android.logger.BeagleLogger
+import org.junit.Test
 
-private const val BEAGLE_TAG = "BeagleSDK"
-class BeagleLoggerDefault : BeagleLogger {
+import org.junit.Assert.*
 
-    override fun warning(message: String) {
-        Log.w(BEAGLE_TAG, message)
-    }
-
-    override fun error(message: String) {
-        Log.e(BEAGLE_TAG, message)
-    }
-
-    override fun error(message: String, throwable: Throwable) {
-        Log.e(BEAGLE_TAG, message, throwable)
-    }
-
-    override fun info(message: String) {
-        Log.i(BEAGLE_TAG, message)
+/**
+ * Example local unit test, which will execute on the development machine (host).
+ *
+ * See [testing documentation](http://d.android.com/tools/testing).
+ */
+class ExampleUnitTest {
+    @Test
+    fun addition_isCorrect() {
+        assertEquals(4, 2 + 2)
     }
 }

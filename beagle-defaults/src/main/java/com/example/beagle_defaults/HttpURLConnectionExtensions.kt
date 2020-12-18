@@ -15,15 +15,28 @@
  *
  */
 
-package br.com.zup.beaglescaffold
+package com.example.beagle_defaults
 
-import android.app.Application
-import br.com.zup.beaglescaffold.initialConfig.essential.BeagleScaffold
+import java.net.HttpURLConnection
 
-class SampleBeagleApplication : Application() {
-    override fun onCreate() {
-        super.onCreate()
+internal fun HttpURLConnection.getSafeResponseCode(): Int? {
+    return getMessageFormatted { this.responseCode }
+}
 
-        BeagleScaffold.scaffold(BeagleSetup()).init(this)
+internal fun HttpURLConnection.getSafeResponseMessage(): String? {
+    return getMessageFormatted { this.responseMessage }
+}
+
+internal fun HttpURLConnection.getSafeError(): ByteArray? {
+    return getMessageFormatted { this.errorStream.readBytes() }
+}
+
+internal typealias GetData<T> = () -> T
+
+internal fun <T> getMessageFormatted(getData: GetData<T>): T? {
+    return try {
+        getData.invoke()
+    } catch (exception: Exception) {
+        null
     }
 }
