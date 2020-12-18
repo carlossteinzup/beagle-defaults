@@ -38,48 +38,46 @@ import br.com.zup.beagle.android.widget.WidgetView
 
 
 object BeagleScaffold {
-    fun scaffold(beagleSdk: BeagleSdk) : BeagleSdk {
-        val newSdkInstance = object : BeagleSdk {
+    fun scaffold(beagleSdk: BeagleSdk): BeagleSdk {
+        return object : BeagleSdk {
             override val analytics: Analytics?
                 get() = beagleSdk.analytics
             override val config: BeagleConfig
                 get() = beagleSdk.config
-            override val controllerReference: BeagleControllerReference? = beagleSdk.controllerReference
+            override val controllerReference: BeagleControllerReference? =
+                beagleSdk.controllerReference
             override val deepLinkHandler: DeepLinkHandler? = beagleSdk.deepLinkHandler
             override val designSystem: DesignSystem?
-                get() = TODO("Not yet implemented")
+                get() = beagleSdk.designSystem
             override val formLocalActionHandler: FormLocalActionHandler?
-                get() = TODO("Not yet implemented")
+                get() = beagleSdk.formLocalActionHandler
             override val httpClient: HttpClient?
-                get() = TODO("Not yet implemented")
+                get() = beagleSdk.httpClient
             override val imageDownloader: BeagleImageDownloader?
-                get() = TODO("Not yet implemented")
+                get() = beagleSdk.imageDownloader
             override val logger: BeagleLogger? = BeagleLoggerDefault()
             override val serverDrivenActivity: Class<BeagleActivity>
-                get() = TODO("Not yet implemented")
+                get() = beagleSdk.serverDrivenActivity
             override val storeHandler: StoreHandler?
-                get() = TODO("Not yet implemented")
+                get() = beagleSdk.storeHandler
             override val typeAdapterResolver: TypeAdapterResolver?
-                get() = TODO("Not yet implemented")
+                get() = beagleSdk.typeAdapterResolver
             override val urlBuilder: UrlBuilder?
-                get() = TODO("Not yet implemented")
+                get() = beagleSdk.urlBuilder
             override val validatorHandler: ValidatorHandler?
-                get() = TODO("Not yet implemented")
+                get() = beagleSdk.validatorHandler
 
             override fun registeredActions(): List<Class<Action>> {
-                TODO("Not yet implemented")
+                return beagleSdk.registeredActions()
             }
 
             override fun registeredOperations(): Map<String, Operation> {
-                TODO("Not yet implemented")
+                return beagleSdk.registeredOperations()
             }
 
             override fun registeredWidgets(): List<Class<WidgetView>> {
-                TODO("Not yet implemented")
+                return beagleSdk.registeredWidgets()
             }
-
         }
-        return newSdkInstance
     }
-
 }
