@@ -25,7 +25,9 @@ import br.com.zup.beagle.android.components.layout.Screen
 import br.com.zup.beagle.android.setup.BeagleSdk
 import br.com.zup.beagle.android.utils.newServerDrivenIntent
 import br.com.zup.beagle.android.utils.toView
+import br.com.zup.beagle.android.view.BeagleActivity
 import br.com.zup.beagle.android.view.ScreenRequest
+import br.com.zup.beagle.android.view.ServerDrivenActivity
 import br.com.zup.beagle.core.Style
 import br.com.zup.beagle.ext.applyStyle
 import br.com.zup.beagle.ext.unitReal
@@ -39,7 +41,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        test_content.addView(testScreen().toView(this))
+       // test_content.addView(testScreen().toView(this))
+
+        val intent = this.newServerDrivenIntent<ServerDrivenActivity>(ScreenRequest("http://10.0.2.2:8080/text"))
+        startActivity(intent)
     }
 
     private fun testScreen() = Screen(

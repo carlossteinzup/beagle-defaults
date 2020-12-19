@@ -15,7 +15,7 @@
  *
  */
 
-package com.example.beagle_defaults
+package com.example.beagle_defaults.httpclient
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

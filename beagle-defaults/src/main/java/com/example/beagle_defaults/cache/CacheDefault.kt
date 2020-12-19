@@ -15,28 +15,27 @@
  *
  */
 
-package com.example.beagle_defaults
+package com.example.beagle_defaults.cache
 
-import java.net.HttpURLConnection
+import br.com.zup.beagle.android.store.StoreHandler
+import br.com.zup.beagle.android.store.StoreType
 
-internal fun HttpURLConnection.getSafeResponseCode(): Int? {
-    return getMessageFormatted { this.responseCode }
-}
-
-internal fun HttpURLConnection.getSafeResponseMessage(): String? {
-    return getMessageFormatted { this.responseMessage }
-}
-
-internal fun HttpURLConnection.getSafeError(): ByteArray? {
-    return getMessageFormatted { this.errorStream.readBytes() }
-}
-
-internal typealias GetData<T> = () -> T
-
-internal fun <T> getMessageFormatted(getData: GetData<T>): T? {
-    return try {
-        getData.invoke()
-    } catch (exception: Exception) {
-        null
+class BeagleCacheDefault : StoreHandler {
+    override fun delete(storeType: StoreType, key: String) {
+        TODO("Not yet implemented")
     }
+
+    override fun getAll(storeType: StoreType): Map<String, String> {
+        TODO("Not yet implemented")
+    }
+
+    override fun restore(storeType: StoreType, vararg keys: String): Map<String, String?> {
+        TODO("Not yet implemented")
+    }
+
+    override fun save(storeType: StoreType, data: Map<String, String>) {
+        TODO("Not yet implemented")
+    }
+
+
 }

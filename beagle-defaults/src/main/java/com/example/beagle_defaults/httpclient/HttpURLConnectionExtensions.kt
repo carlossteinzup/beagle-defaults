@@ -15,27 +15,28 @@
  *
  */
 
-package com.example.beagle_defaults
+package com.example.beagle_defaults.httpclient
 
-import android.util.Log
-import br.com.zup.beagle.android.logger.BeagleLogger
+import java.net.HttpURLConnection
 
-private const val BEAGLE_TAG = "BeagleSDK"
-class BeagleCacheDefault : BeagleLogger {
+internal fun HttpURLConnection.getSafeResponseCode(): Int? {
+    return getMessageFormatted { this.responseCode }
+}
 
-    override fun warning(message: String) {
-        Log.w(BEAGLE_TAG, message)
-    }
+internal fun HttpURLConnection.getSafeResponseMessage(): String? {
+    return getMessageFormatted { this.responseMessage }
+}
 
-    override fun error(message: String) {
-        Log.e(BEAGLE_TAG, message)
-    }
+internal fun HttpURLConnection.getSafeError(): ByteArray? {
+    return getMessageFormatted { this.errorStream.readBytes() }
+}
 
-    override fun error(message: String, throwable: Throwable) {
-        Log.e(BEAGLE_TAG, message, throwable)
-    }
+internal typealias GetData<T> = () -> T
 
-    override fun info(message: String) {
-        Log.i(BEAGLE_TAG, message)
+internal fun <T> getMessageFormatted(getData: GetData<T>): T? {
+    return try {
+        getData.invoke()
+    } catch (exception: Exception) {
+        null
     }
 }

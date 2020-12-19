@@ -35,6 +35,7 @@ import br.com.zup.beagle.android.setup.DesignSystem
 import br.com.zup.beagle.android.store.StoreHandler
 import br.com.zup.beagle.android.view.BeagleActivity
 import br.com.zup.beagle.android.widget.WidgetView
+import com.example.beagle_defaults.httpclient.HttpClientDefault
 
 
 object BeagleDefaults {
