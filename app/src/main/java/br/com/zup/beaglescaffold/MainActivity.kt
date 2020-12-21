@@ -19,6 +19,8 @@ package br.com.zup.beaglescaffold
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import br.com.zup.beagle.android.action.Alert
+import br.com.zup.beagle.android.components.Button
 import br.com.zup.beagle.android.components.Text
 import br.com.zup.beagle.android.components.layout.Container
 import br.com.zup.beagle.android.components.layout.Screen
@@ -41,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-       // test_content.addView(testScreen().toView(this))
+  //      test_content.addView(testScreen().toView(this))
 
         val intent = this.newServerDrivenIntent<ServerDrivenActivity>(ScreenRequest("http://10.0.2.2:8080/text"))
         startActivity(intent)
@@ -57,6 +59,7 @@ class MainActivity : AppCompatActivity() {
                         flex = Flex(alignSelf = AlignSelf.CENTER)
                     )
                 ),
+                Button(text="Click me", onPress = listOf(Alert("","Beagle is working"))),
                 Text(textColor = "#000000",
                     text = "Beagle is a cross-platform framework which provides usage of the " +
                             "Server-Driven UI concept, natively in iOS, Android and Web applications. " +

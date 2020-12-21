@@ -15,27 +15,14 @@
  *
  */
 
-package com.example.beagle_defaults.cache
+package br.com.zup.beaglescaffold.initialConfig.essential
 
-import br.com.zup.beagle.android.store.StoreHandler
-import br.com.zup.beagle.android.store.StoreType
+import br.com.zup.beagle.android.setup.BeagleSdk
+import com.example.beagle_defaults.BeagleDefaults
 
-class BeagleCacheDefault : StoreHandler {
-    override fun delete(storeType: StoreType, key: String) {
-        TODO("Not yet implemented")
+
+object BeagleScaffold {
+    fun scaffold(beagleSdk: BeagleSdk): BeagleSdk {
+        return BeagleDefaults.defaults(beagleSdk)
     }
-
-    override fun getAll(storeType: StoreType): Map<String, String> {
-        TODO("Not yet implemented")
-    }
-
-    override fun restore(storeType: StoreType, vararg keys: String): Map<String, String?> {
-        TODO("Not yet implemented")
-    }
-
-    override fun save(storeType: StoreType, data: Map<String, String>) {
-        TODO("Not yet implemented")
-    }
-
-
 }
