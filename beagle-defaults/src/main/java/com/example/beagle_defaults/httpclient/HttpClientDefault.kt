@@ -17,25 +17,18 @@
 
 package com.example.beagle_defaults.httpclient
 
-import br.com.zup.beagle.android.annotation.BeagleComponent
 import br.com.zup.beagle.android.exception.BeagleApiException
-import br.com.zup.beagle.android.networking.HttpClient
-import br.com.zup.beagle.android.networking.HttpMethod
-import br.com.zup.beagle.android.networking.RequestCall
-import br.com.zup.beagle.android.networking.RequestData
-import br.com.zup.beagle.android.networking.ResponseData
+import br.com.zup.beagle.android.networking.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import java.io.EOFException
 import java.net.HttpURLConnection
-import kotlin.jvm.Throws
 
 typealias OnSuccess = (responseData: ResponseData) -> Unit
 typealias OnError = (responseData: ResponseData) -> Unit
 
-@BeagleComponent
 class HttpClientDefault : HttpClient, CoroutineScope {
 
     private val job = Job()
@@ -101,12 +94,17 @@ class HttpClientDefault : HttpClient, CoroutineScope {
         }
     }
 
-    private fun tryFormatException(urlConnection: HttpURLConnection, request: RequestData): BeagleApiException {
+    private fun tryFormatException(
+        urlConnection: HttpURLConnection,
+        request: RequestData
+    ): BeagleApiException {
         val response = urlConnection.getSafeError() ?: byteArrayOf()
         val statusCode = urlConnection.getSafeResponseCode()
         val statusText = urlConnection.getSafeResponseMessage()
-        val responseData = ResponseData(statusCode = statusCode,
-            data = response, statusText = statusText)
+        val responseData = ResponseData(
+            statusCode = statusCode,
+            data = response, statusText = statusText
+        )
 
         return BeagleApiException(responseData, request)
     }

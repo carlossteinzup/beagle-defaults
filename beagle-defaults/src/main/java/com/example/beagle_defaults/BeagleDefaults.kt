@@ -17,6 +17,7 @@
 
 package com.example.beagle_defaults
 
+import android.app.Application
 import br.com.zup.beagle.analytics.Analytics
 import br.com.zup.beagle.android.action.Action
 import br.com.zup.beagle.android.action.FormLocalActionHandler
@@ -35,49 +36,42 @@ import br.com.zup.beagle.android.setup.DesignSystem
 import br.com.zup.beagle.android.store.StoreHandler
 import br.com.zup.beagle.android.view.BeagleActivity
 import br.com.zup.beagle.android.widget.WidgetView
+import com.example.beagle_defaults.cache.StoreHandlerDefault
 import com.example.beagle_defaults.httpclient.HttpClientDefault
-
 
 object BeagleDefaults {
     fun defaults(beagleSdk: BeagleSdk): BeagleSdk {
         return object : BeagleSdk {
-            override val analytics: Analytics?
-                get() = beagleSdk.analytics
-            override val config: BeagleConfig
-                get() = beagleSdk.config
-            override val controllerReference: BeagleControllerReference? =
-                beagleSdk.controllerReference
+            override val analytics: Analytics? = beagleSdk.analytics
+            override val config: BeagleConfig = beagleSdk.config
+            override val controllerReference: BeagleControllerReference? = beagleSdk
+                .controllerReference
             override val deepLinkHandler: DeepLinkHandler? = beagleSdk.deepLinkHandler
-            override val designSystem: DesignSystem?
-                get() = beagleSdk.designSystem
-            override val formLocalActionHandler: FormLocalActionHandler?
-                get() = beagleSdk.formLocalActionHandler
-            override val httpClient: HttpClient?
-                get() = HttpClientDefault()
-            override val imageDownloader: BeagleImageDownloader?
-                get() = beagleSdk.imageDownloader
+            override val designSystem: DesignSystem? = beagleSdk.designSystem
+            override val formLocalActionHandler: FormLocalActionHandler? = beagleSdk
+                .formLocalActionHandler
+            override val httpClient: HttpClient? = HttpClientDefault()
+            override val imageDownloader: BeagleImageDownloader? = beagleSdk.imageDownloader
             override val logger: BeagleLogger? = BeagleLoggerDefault()
-            override val serverDrivenActivity: Class<BeagleActivity>
-                get() = beagleSdk.serverDrivenActivity
-            override val storeHandler: StoreHandler?
-                get() = beagleSdk.storeHandler
-            override val typeAdapterResolver: TypeAdapterResolver?
-                get() = beagleSdk.typeAdapterResolver
-            override val urlBuilder: UrlBuilder?
-                get() = beagleSdk.urlBuilder
-            override val validatorHandler: ValidatorHandler?
-                get() = beagleSdk.validatorHandler
+            override val serverDrivenActivity: Class<BeagleActivity> = beagleSdk
+                .serverDrivenActivity
+            override val storeHandler: StoreHandler? = beagleSdk.storeHandler
+            override val typeAdapterResolver: TypeAdapterResolver? = beagleSdk.typeAdapterResolver
+            override val urlBuilder: UrlBuilder? = beagleSdk.urlBuilder
+            override val validatorHandler: ValidatorHandler? = beagleSdk.validatorHandler
 
-            override fun registeredActions(): List<Class<Action>> {
-                return beagleSdk.registeredActions()
-            }
+            override fun registeredActions(): List<Class<Action>> = beagleSdk
+                .registeredActions()
 
-            override fun registeredOperations(): Map<String, Operation> {
-                return beagleSdk.registeredOperations()
-            }
+            override fun registeredOperations(): Map<String, Operation> = beagleSdk
+                .registeredOperations()
 
-            override fun registeredWidgets(): List<Class<WidgetView>> {
-                return beagleSdk.registeredWidgets()
+            override fun registeredWidgets(): List<Class<WidgetView>> = beagleSdk
+                .registeredWidgets()
+
+            override fun init(application: Application) {
+                super.init(application)
+                (this.storeHandler as? StoreHandlerDefault)?.init(application)
             }
         }
     }

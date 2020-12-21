@@ -21,6 +21,7 @@ import android.util.Log
 import br.com.zup.beagle.android.logger.BeagleLogger
 
 private const val BEAGLE_TAG = "BeagleSDK"
+
 class BeagleLoggerDefault : BeagleLogger {
 
     override fun warning(message: String) {
