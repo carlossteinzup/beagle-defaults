@@ -17,12 +17,20 @@
 
 package br.com.zup.beaglescaffold
 
-import android.app.Application
-import br.com.zup.beaglescaffold.initialConfig.essential.BeagleScaffold
+import android.content.Intent
+import br.com.zup.beagle.android.annotation.BeagleComponent
+import br.com.zup.beagle.android.navigation.DeepLinkHandler
+import br.com.zup.beagle.android.widget.RootView
 
-class AppApplication : Application() {
-    override fun onCreate() {
-        super.onCreate()
-        BeagleScaffold(BeagleSetup()).init(this)
+@BeagleComponent
+class MyDeepLinkHandler: DeepLinkHandler {
+    override fun getDeepLinkIntent(
+        rootView: RootView,
+        path: String,
+        data: Map<String, String>?,
+        shouldResetApplication: Boolean
+    ): Intent {
+        TODO("Not yet implemented")
     }
 }
+
