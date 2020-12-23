@@ -21,4 +21,4 @@ import br.com.zup.beagle.android.annotation.BeagleComponent
 import br.com.zup.beaglescaffold.initialConfig.essential.BeagleConfigScaffold
 
 @BeagleComponent
-class AppBeagleConfig : BeagleConfigScaffold(baseUrl = "")
+class AppBeagleConfig : BeagleConfigScaffold()
