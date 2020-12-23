@@ -22,13 +22,12 @@ import br.com.zup.beagle.android.store.StoreHandler
 import br.com.zup.beagle.android.store.StoreType
 
 
-internal class StoreHandlerDefault(
+class StoreHandlerDefault(
+    private val application: Application,
+    private val databaseLocalStore: DatabaseLocalStore = DatabaseLocalStore(application),
     private val memoryLocalStore: MemoryLocalStore = MemoryLocalStore
+
 ) : StoreHandler {
-    private lateinit var databaseLocalStore: DatabaseLocalStore
-    fun init(application: Application) {
-        databaseLocalStore = DatabaseLocalStore(application)
-    }
 
     override fun save(storeType: StoreType, data: Map<String, String>) {
         data.forEach {

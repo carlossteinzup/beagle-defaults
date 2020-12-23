@@ -23,6 +23,6 @@ import br.com.zup.beaglescaffold.initialConfig.essential.BeagleScaffold
 class AppApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        br.com.zup.beaglescaffold.initialConfig.essential.BeagleScaffold(BeagleSetup()).init(this)
+        BeagleScaffold(BeagleSetup()).init(this)
     }
 }

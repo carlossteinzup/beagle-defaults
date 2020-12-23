@@ -33,7 +33,7 @@ internal object ScreenEntry : BaseColumns {
     const val VALUE_COLUMN_NAME = "value"
 }
 
-internal class DatabaseLocalStore(
+class DatabaseLocalStore(
     private val application: Application,
     private val contentValuesFactory: ContentValuesFactory = ContentValuesFactory(),
     private val database: SQLiteDatabase = BeagleDatabaseManager.getDatabase(
@@ -111,7 +111,7 @@ internal class DatabaseLocalStore(
     }
 }
 
-internal class ContentValuesFactory {
+class ContentValuesFactory {
     fun make(): ContentValues = ContentValues()
 }
 
