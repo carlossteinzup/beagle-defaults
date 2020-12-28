@@ -15,14 +15,10 @@
  *
  */
 
-package br.com.zup.beaglescaffold.initialConfig.essential
+package br.com.zup.beaglescaffold.beagle
 
-import br.com.zup.beagle.android.setup.BeagleSdk
-import com.example.beagle_defaults.BeagleDefaults
+import br.com.zup.beagle.android.annotation.BeagleComponent
+import com.example.beagle_defaults.cache.StoreHandlerDefault
 
-
-object BeagleScaffold {
-    fun scaffold(beagleSdk: BeagleSdk): BeagleSdk {
-        return BeagleDefaults.defaults(beagleSdk)
-    }
-}
+@BeagleComponent
+class CacheApp: StoreHandlerDefault()

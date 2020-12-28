@@ -15,22 +15,10 @@
  *
  */
 
-package br.com.zup.beaglescaffold
+package br.com.zup.beaglescaffold.beagle
 
-import android.content.Intent
 import br.com.zup.beagle.android.annotation.BeagleComponent
-import br.com.zup.beagle.android.navigation.DeepLinkHandler
-import br.com.zup.beagle.android.widget.RootView
+import com.example.beagle_defaults.httpclient.HttpClientDefault
 
 @BeagleComponent
-class MyDeepLinkHandler: DeepLinkHandler {
-    override fun getDeepLinkIntent(
-        rootView: RootView,
-        path: String,
-        data: Map<String, String>?,
-        shouldResetApplication: Boolean
-    ): Intent {
-        TODO("Not yet implemented")
-    }
-}
-
+class HttpApp: HttpClientDefault()
