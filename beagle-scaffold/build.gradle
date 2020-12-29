@@ -61,7 +61,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
 
     implementation "br.com.zup.beagle:android:$beagle_version"
-    api project(":beagle-defaults")
+    api "br.com.zup.beagle:beagle-defaults:0.0.3"
+   // api project(":beagle-defaults")
 
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

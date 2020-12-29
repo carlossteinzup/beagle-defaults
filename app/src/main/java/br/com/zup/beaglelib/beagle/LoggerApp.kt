@@ -15,15 +15,12 @@
  *
  */
 
-package br.com.zup.beaglescaffold
+package br.com.zup.beaglelib.beagle
 
-import android.app.Application
-import br.com.zup.beaglescaffold.beagle.BeagleSetup
+// beagle-defaults lib config
 
-
-class AppApplication : Application() {
-    override fun onCreate() {
-        super.onCreate()
-        BeagleSetup().init(this)
-    }
-}
+//import br.com.zup.beagle.android.annotation.BeagleComponent
+//import br.com.zup.beagle.defaults.logger.BeagleLoggerDefault
+//
+//@BeagleComponent
+//class LoggerApp: BeagleLoggerDefault()

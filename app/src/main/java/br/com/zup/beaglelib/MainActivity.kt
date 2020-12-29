@@ -15,7 +15,7 @@
  *
  */
 
-package br.com.zup.beaglescaffold
+package br.com.zup.beaglelib
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -36,6 +36,7 @@ import br.com.zup.beagle.ext.unitReal
 import br.com.zup.beagle.widget.core.AlignSelf
 import br.com.zup.beagle.widget.core.EdgeValue
 import br.com.zup.beagle.widget.core.Flex
+import br.com.zup.beaglescaffold.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

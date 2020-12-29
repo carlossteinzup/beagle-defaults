@@ -15,10 +15,12 @@
  *
  */
 
-package br.com.zup.beaglescaffold.beagle
+package br.com.zup.beaglelib.beagle
 
-import br.com.zup.beagle.android.annotation.BeagleComponent
-import br.com.zup.beagle.defaults.cache.StoreHandlerDefault
+// beagle-defaults lib config
 
-@BeagleComponent
-class CacheApp : StoreHandlerDefault()
+//import br.com.zup.beagle.android.annotation.BeagleComponent
+//import br.com.zup.beagle.defaults.httpclient.HttpClientDefault
+//
+//@BeagleComponent
+//class HttpApp: HttpClientDefault()
