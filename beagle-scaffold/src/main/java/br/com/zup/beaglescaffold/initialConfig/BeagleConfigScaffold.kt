@@ -15,7 +15,7 @@
  *
  */
 
-package br.com.zup.beaglescaffold.initialConfig.essential
+package br.com.zup.beaglescaffold.initialConfig
 
 import br.com.zup.beagle.android.setup.BeagleConfig
 import br.com.zup.beagle.android.setup.Cache
