@@ -18,7 +18,7 @@
 package br.com.zup.beaglescaffold.beagle
 
 import br.com.zup.beagle.android.annotation.BeagleComponent
-import com.example.beagle_defaults.httpclient.HttpClientDefault
+import br.com.zup.beagle.defaults.httpclient.HttpClientDefault
 
 @BeagleComponent
 class HttpApp: HttpClientDefault()

@@ -18,7 +18,7 @@
 package br.com.zup.beaglescaffold.beagle
 
 import br.com.zup.beagle.android.annotation.BeagleComponent
-import com.example.beagle_defaults.cache.StoreHandlerDefault
+import br.com.zup.beagle.defaults.cache.StoreHandlerDefault
 
 @BeagleComponent
-class CacheApp: StoreHandlerDefault()
+class CacheApp : StoreHandlerDefault()

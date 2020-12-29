@@ -18,7 +18,7 @@
 package br.com.zup.beaglescaffold.beagle
 
 import br.com.zup.beagle.android.annotation.BeagleComponent
-import com.example.beagle_defaults.BeagleLoggerDefault
+import br.com.zup.beagle.defaults.logger.BeagleLoggerDefault
 
 @BeagleComponent
 class LoggerApp: BeagleLoggerDefault()

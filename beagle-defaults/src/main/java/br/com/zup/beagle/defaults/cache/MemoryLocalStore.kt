@@ -15,11 +15,11 @@
  *
  */
 
-package com.example.beagle_defaults.cache
+package br.com.zup.beagle.defaults.cache
 
 import br.com.zup.beagle.android.store.LocalStore
 
-internal object MemoryLocalStore : LocalStore {
+object MemoryLocalStore : LocalStore {
     private val cache = mutableMapOf<String, String>()
     override fun save(key: String, value: String) {
         cache[key] = value

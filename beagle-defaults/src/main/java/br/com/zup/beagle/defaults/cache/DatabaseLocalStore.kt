@@ -15,7 +15,7 @@
  *
  */
 
-package com.example.beagle_defaults.cache
+package br.com.zup.beagle.defaults.cache
 
 import android.app.Application
 import android.content.ContentValues
@@ -25,7 +25,8 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.provider.BaseColumns
 import br.com.zup.beagle.android.store.LocalStore
-import com.example.beagle_defaults.BeagleLoggerDefault
+import br.com.zup.beagle.defaults.logger.BeagleLoggerDefault
+
 
 internal object ScreenEntry : BaseColumns {
     const val TABLE_NAME = "KeyValueCache"
@@ -120,7 +121,7 @@ internal object BeagleDatabaseManager {
     private const val DATABASE_VERSION = 2
     private lateinit var database: SQLiteDatabase
     fun getDatabase(context: Context): SQLiteDatabase {
-        if (!::database.isInitialized) {
+        if (!BeagleDatabaseManager::database.isInitialized) {
             database = BeagleSQLiteDatabase(
                 context,
                 DATABASE_NAME,

@@ -15,7 +15,7 @@
  *
  */
 
-package com.example.beagle_defaults.httpclient
+package br.com.zup.beagle.defaults.httpclient
 
 import java.net.HttpURLConnection
 

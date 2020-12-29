@@ -15,14 +15,14 @@
  *
  */
 
-package com.example.beagle_defaults
+package br.com.zup.beagle.defaults.logger
 
 import android.util.Log
 import br.com.zup.beagle.android.logger.BeagleLogger
 
 private const val BEAGLE_TAG = "BeagleSDK"
 
-class BeagleLoggerDefault : BeagleLogger {
+open class BeagleLoggerDefault : BeagleLogger {
 
     override fun warning(message: String) {
         Log.w(BEAGLE_TAG, message)

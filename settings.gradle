@@ -16,6 +16,5 @@
  */
 include ':beagle-defaults'
 
-include ':beagle-scaffold'
 include ':app'
-rootProject.name = "Beagle Scaffold"
+rootProject.name = "Beagle Libs"
