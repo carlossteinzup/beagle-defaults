@@ -36,10 +36,10 @@ import br.com.zup.beagle.android.setup.DesignSystem
 import br.com.zup.beagle.android.store.StoreHandler
 import br.com.zup.beagle.android.view.BeagleActivity
 import br.com.zup.beagle.android.widget.WidgetView
+import br.com.zup.beagle.defaults.cache.MemoryLocalStore
 import br.com.zup.beagle.defaults.cache.StoreHandlerDefault
 import br.com.zup.beagle.defaults.httpclient.HttpClientDefault
 import br.com.zup.beagle.defaults.logger.BeagleLoggerDefault
-
 
 class BeagleScaffold(private val beagleSdk: BeagleSdk) : BeagleSdk {
     override val analytics: Analytics? = beagleSdk.analytics

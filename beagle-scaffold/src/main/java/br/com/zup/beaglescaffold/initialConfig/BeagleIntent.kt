@@ -15,17 +15,19 @@
  *
  */
 
-package br.com.zup.beaglelib
+package br.com.zup.beaglescaffold.initialConfig
 
-import android.app.Application
-import br.com.zup.beaglelib.beagle.BeagleSetup
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import br.com.zup.beagle.android.utils.newServerDrivenIntent
+import br.com.zup.beagle.android.view.ScreenRequest
+import br.com.zup.beagle.android.view.ServerDrivenActivity
 
-import br.com.zup.beaglescaffold.initialConfig.BeagleScaffold
+class BeagleIntent(private val activity: AppCompatActivity) {
 
-
-class AppApplication : Application() {
-    override fun onCreate() {
-        super.onCreate()
-        BeagleScaffold(BeagleSetup()).init(this)
-    }
+    fun toSample():Intent =
+        activity.newServerDrivenIntent<ServerDrivenActivity>(
+            ScreenRequest("http://10.0.2.2:8080/text")
+        )
 }
+

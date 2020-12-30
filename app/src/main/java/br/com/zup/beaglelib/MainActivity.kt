@@ -17,26 +17,12 @@
 
 package br.com.zup.beaglelib
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import br.com.zup.beagle.android.action.Alert
-import br.com.zup.beagle.android.components.Button
-import br.com.zup.beagle.android.components.Text
-import br.com.zup.beagle.android.components.layout.Container
-import br.com.zup.beagle.android.components.layout.Screen
-import br.com.zup.beagle.android.setup.BeagleSdk
-import br.com.zup.beagle.android.utils.newServerDrivenIntent
+import androidx.appcompat.app.AppCompatActivity
 import br.com.zup.beagle.android.utils.toView
-import br.com.zup.beagle.android.view.BeagleActivity
-import br.com.zup.beagle.android.view.ScreenRequest
-import br.com.zup.beagle.android.view.ServerDrivenActivity
-import br.com.zup.beagle.core.Style
-import br.com.zup.beagle.ext.applyStyle
-import br.com.zup.beagle.ext.unitReal
-import br.com.zup.beagle.widget.core.AlignSelf
-import br.com.zup.beagle.widget.core.EdgeValue
-import br.com.zup.beagle.widget.core.Flex
 import br.com.zup.beaglescaffold.R
+import br.com.zup.beaglescaffold.initialConfig.BeagleDeclarativeSample
+import br.com.zup.beaglescaffold.initialConfig.BeagleIntent
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -44,38 +30,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        test_content.addView(testScreen().toView(this))
+        //Declarative screen
+        //test_content.addView((BeagleDeclarativeSample.screen).toView(this))
 
-        val intent = this.newServerDrivenIntent<ServerDrivenActivity>(ScreenRequest("http://10.0.2.2:8080/text"))
-        startActivity(intent)
+        // Config com beagle defaults - Server-driven activity
+        // val intent = this.newServerDrivenIntent<ServerDrivenActivity>(ScreenRequest("http://10.0.2.2:8080/text"))
+
+        //Config com Scaffold - Server-driven activity
+        startActivity(BeagleIntent(this).toSample())
     }
-
-    private fun testScreen() = Screen(
-        child = Container(
-            children = listOf(
-                Text(textColor = "#000000",
-                    text = "Hello Beagle!"
-                ).applyStyle(
-                    Style(margin = EdgeValue(top = 16.unitReal()),
-                        flex = Flex(alignSelf = AlignSelf.CENTER)
-                    )
-                ),
-                Button(text="Click me", onPress = listOf(Alert("","Beagle is working"))),
-                Text(textColor = "#000000",
-                    text = "Beagle is a cross-platform framework which provides usage of the " +
-                            "Server-Driven UI concept, natively in iOS, Android and Web applications. " +
-                            "By using Beagle, your team could easily change application's layout and" +
-                            " data by just changing backend code."
-                ).applyStyle(
-                    Style(
-                        margin = EdgeValue(
-                        left = 16.unitReal(),
-                        right = 16.unitReal(),
-                        top = 20.unitReal()
-                    )
-                    )
-                )
-            )
-        )
-    )
 }
