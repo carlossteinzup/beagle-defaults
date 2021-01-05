@@ -19,7 +19,10 @@ package br.com.zup.beaglelib
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import br.com.zup.beagle.android.utils.newServerDrivenIntent
 import br.com.zup.beagle.android.utils.toView
+import br.com.zup.beagle.android.view.ScreenRequest
+import br.com.zup.beagle.android.view.ServerDrivenActivity
 import br.com.zup.beaglescaffold.R
 import br.com.zup.beaglescaffold.initialConfig.BeagleDeclarativeSample
 import br.com.zup.beaglescaffold.initialConfig.BeagleIntent
@@ -31,12 +34,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //Declarative screen
-        //test_content.addView((BeagleDeclarativeSample.screen).toView(this))
+        //server_driven_content_layout.addView((BeagleDeclarativeSample.screen).toView(this))
 
-        // Config com beagle defaults - Server-driven activity
-        // val intent = this.newServerDrivenIntent<ServerDrivenActivity>(ScreenRequest("http://10.0.2.2:8080/text"))
+        // Config with beagle defaults - Server-driven activity
+        //val intent = this.newServerDrivenIntent<ServerDrivenActivity>(ScreenRequest("http://10.0.2.2:8080/text"))
+        //startActivity(intent)
 
-        //Config com Scaffold - Server-driven activity
+        //Config with Scaffold - Server-driven activity
         startActivity(BeagleIntent(this).toSample())
     }
 }
